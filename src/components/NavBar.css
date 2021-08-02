@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: #1a2639;
+    justify-content: space-evenly;
+    padding: .7em 0 .7em 0;
+}
+
+.top-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    color: aliceblue;
+}
+.top-left > a {
+    font-size: 1em;
+    margin: 0 .5em 0 .5em;
+    text-decoration: none;
+    color: aliceblue;
+}
+.top-right {
+    align-items: center;
+}
