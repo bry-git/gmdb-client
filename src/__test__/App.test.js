@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import App from '../App';
 
 describe('Main App component test', () => {
+
   beforeEach(() => {
     render(<App />)
   })
@@ -22,10 +23,14 @@ describe('Main App component test', () => {
       //expect(screen.queryByRole('textbox', {name: 'Password'})).toBeVisible();
 
       screen.getByRole('link', {name: 'Home'}).click()
-      expect(screen.getByText(/Movie Gallery/i)).toBeVisible();
+      setTimeout(() => {
+        expect(screen.getByLabelText('Guardians of the Galaxy Vol. 2'))
+      },2000)
   })
 
-  it('the movie gallery page includes movie card previews', () => {
-    
+  it('movie gallery renders a list of movie cards', () => {
+    setTimeout(() => {
+      expect(screen.getAllByLabelText('movie-card'))
+    },2000)
   })
 })

@@ -1,6 +1,6 @@
 
 
-describe('GMDB', () => {
+describe('GMDB integration tests', () => {
     beforeEach(() => {
         cy.reload()
         cy.visit('/')
@@ -11,6 +11,15 @@ describe('GMDB', () => {
         cy.get('#formBasicPassword')
 
         cy.findByRole('link', {name: /home/i}).click();
-        cy.findByText(/Movie Gallery/i)
+    })
+    it('movie gallery renders a list of movie cards', () => {
+        cy.get('[href="/1"] > img')
+        cy.get('[href="/2"] > img')
+        cy.get('[href="/3"] > img')
+        cy.get('[href="/33"] > img')
+    })
+    it('clicking on a movie card takes you to a details page', () => {
+        cy.get('[href="/1"] > img').click();
+        cy.findByText(/movie details page/i)
     })
 })

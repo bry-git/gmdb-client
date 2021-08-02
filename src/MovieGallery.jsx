@@ -1,15 +1,19 @@
-import {React, useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import fetch from 'node-fetch'
 import MovieCard from "./components/MovieCard";
 
-const MovieGallery = () => {
+const MovieGallery = ({changeMovie}) => {
 
-    const [movies, setMovies ] = useState([])
+    const [movies, setMovies] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const getMovies = async () => {
         await fetch('http://localhost:3001/movies')
-        .then(response => response.json())
-        .then(data => setMovies(data))
+            .then(response => response.json())
+            .then((data) => {
+                setMovies(data)
+                setLoading(false)
+            })
     }
 
     useEffect(() => {
@@ -17,14 +21,21 @@ const MovieGallery = () => {
     }, [])
 
 
-    return(
+    return (
         <>
-        <h3>Movie Gallery</h3>
-        {console.log(movies)}
-        <MovieCard props={movies[0]}/>
-        {console.log(movies[0])}
+            {loading ? (
+                <div>loading...</div>
+            ) : (
+                <div>
+                    <ul className="movie-flex">
+                      {movies.map((movie, index) => {return <MovieCard movie={movie} changeMovie={changeMovie} key={index}/>})}
+                    </ul>
+                </div>
+            )}
         </>
     )
 }
+
+
 
 export default MovieGallery

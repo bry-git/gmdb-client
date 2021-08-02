@@ -1,0 +1,6 @@
+.movie-card > a {
+    display: flex;
+    max-width: 10px;
+    height: auto;
+    padding: 0 0 0 0
+}
