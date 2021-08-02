@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import NavBar from "./components/NavBar";
 
 const Login = () => {
 
@@ -21,7 +20,7 @@ const Login = () => {
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check type="checkbox" label="Remember Me" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit

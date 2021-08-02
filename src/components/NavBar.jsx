@@ -1,7 +1,7 @@
 import {React, useState} from "react";
 import {Link } from 'react-router-dom';
 import './NavBar.css'
-import AButton from "./Button";
+
 
 
 const NavBar = (props) => {
@@ -13,7 +13,7 @@ const NavBar = (props) => {
    }
 
    const handleSubmit = (event) => {
-
+    console.log('submit clicked')
      props.onSubmit(inputValue); 
    }
 
